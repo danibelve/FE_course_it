@@ -1,51 +1,41 @@
 import React from 'react';
 import './App.css';
-import Button from './components/Button/Button'
+import Title from './components/Title/Title'
+import Card from './components/Card/Card'
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
-
-    this.state = {
-      FistNumber: '',
-      SecondNumber: '',
-      TotalNumber: ''
+    this.images = {
+      web: {
+        src: require('./assets/camara-web.png'),
+        text: "imagen de camara web"
+      },
+      chat: {
+        src: require('./assets/charlar.png'),
+        text: "imagen de chat web"
+      },
+      apoyar:{
+        src: require('./assets/apoyar.png'),
+        text: "dos manos agarradas en señal de contribución"
+      }
     }
   }
-
-  handleClick() {
-    const sum = this.state.FistNumber + this.state.SecondNumber;
-    this.setState({
-      TotalNumber: sum
-    })
-  }
-
-  handleChange(e){
-    const name = e.target.name;
-    this.setState({
-      [name]: parseInt(e.target.value)
-    })
-  }
-
   render() {
     return (
-      <div className="App">
-        <main className="App-header">
-
-        <h1>Sumar números</h1>
-
-          <input className="App-input" name="FistNumber" type="text" onChange={e => this.handleChange(e)}></input>
-          <input className="App-input" name="SecondNumber" type="text" onChange={e => this.handleChange(e)}></input>
-
-          <div onClick={() => { this.handleClick() }}>
-            <Button text="Calcular" />
+      <main className="Main">
+        <article className="Article">
+          <div>
+            <Title Title="Nuestros cursos y carreras"></Title>
           </div>
-
-          <h2 className="App-message">{this.state.TotalNumber}</h2>
-
-        </main>
-      </div>
+        </article>
+        <article className="Article-Background">
+          <Title Title="Nuestra propuesta de valor"></Title>
+          <Card img={this.images.web.src} alt={this.images.web.text} title="Revivi cada clase" text="llalalalalal lalaalal lalaalal lalalal "></Card>
+          <Card img={this.images.chat.src} alt={this.images.chat.text} title="Nunca perdes una clase" text="llalalalalal lalaalal lalaalal lalalal "></Card>
+          <Card img={this.images.apoyar.src} alt={this.images.apoyar.text} title="Estás acompañado" text="llalalalalal lalaalal lalaalal lalalal "></Card>
+        </article>
+      </main>
     );
   }
 }

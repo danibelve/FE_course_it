@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik&display=swap');
+
+.Headings-container{
+    position: relative;
+    margin-bottom: 40px;
+
+}
+.Headings_2 {
+    color:#5225bd;
+    font-weight: lighter;
+    font-family: 'Rubik', sans-serif;
+    width: 50%;
+}
+.Dots{
+    height: 100%;
+    width: 100%;
+    background-image: -webkit-repeating-radial-gradient(center center, #5225bd, #5225bd 1.5px, transparent 1.5px, transparent 100%);
+    background-image: repeating-radial-gradient(center center, #5225bd, #5225bd 1.5px, transparent 1.5px, transparent 100%);
+    background-size: 15px 15px;
+}
+
+.Dots-container{
+    position: absolute;
+    width: 50%;
+    height: 50px;
+    right: 0;
+    top: 50%;
+    margin-top: -23px;
+}
