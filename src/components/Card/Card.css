@@ -1,0 +1,19 @@
+.Card-container{
+    display: inline-flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.Card-title{
+    display: block;
+}
+
+.Card-wrapper{
+    background-color: #FFF;
+    color: #000;
+    border-radius: 8px;
+    width: 300px;
+    height: 300px;
+}

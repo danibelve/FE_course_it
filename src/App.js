@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Button from './components/Button/Button'
+import Card from './components/Card/Card'
 
 class App extends React.Component {
 
@@ -8,42 +8,32 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      FistNumber: '',
-      SecondNumber: '',
-      TotalNumber: ''
+      result: []
     }
   }
 
-  handleClick() {
-    const sum = this.state.FistNumber + this.state.SecondNumber;
+  async componentDidMount(){
+    const data = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=iphone');
+    const result= await data.json();
     this.setState({
-      TotalNumber: sum
-    })
-  }
-
-  handleChange(e){
-    const name = e.target.name;
-    this.setState({
-      [name]: parseInt(e.target.value)
-    })
+      result: result.results
+    }    
+    )
   }
 
   render() {
+    console.log(this.state.result);
     return (
       <div className="App">
         <main className="App-header">
 
-        <h1>Sumar números</h1>
+        <h1>Meli carrrousel</h1>
 
-          <input className="App-input" name="FistNumber" type="text" onChange={e => this.handleChange(e)}></input>
-          <input className="App-input" name="SecondNumber" type="text" onChange={e => this.handleChange(e)}></input>
-
-          <div onClick={() => { this.handleClick() }}>
-            <Button text="Calcular" />
-          </div>
-
-          <h2 className="App-message">{this.state.TotalNumber}</h2>
-
+        <section>
+          {this.state.result.map((result, key) => {
+              return <Card img={result.thumbnail} alt={result.title} title={result.title} text={result.price} key={key}></Card>
+          })}  
+        </section>
         </main>
       </div>
     );
