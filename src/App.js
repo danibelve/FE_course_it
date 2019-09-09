@@ -1,6 +1,10 @@
 import React from 'react';
 import './App.css';
-import Card from './components/Card/Card'
+import Carrito from './components/Carrito/Carrito'
+import Prueba from './components/Prueba/Prueba'
+// eslint-disable-next-line 
+import Carrousel from './components/Carrousel/Carrousel'
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 class App extends React.Component {
 
@@ -12,29 +16,30 @@ class App extends React.Component {
     }
   }
 
-  async componentDidMount(){
-    const data = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=iphone');
+  /* async componentDidMount(){
+    const data = await fetch('https://api.mercadolibre.com/sites/MLA/search?q=iphone&limit=5');
     const result= await data.json();
     this.setState({
       result: result.results
     }    
     )
-  }
+  } */
 
   render() {
-    console.log(this.state.result);
     return (
       <div className="App">
-        <main className="App-header">
+        <Router>
+          <Route path="/carrito" Component={Carrito}/>
+          <Route path="/prueba" Component={Prueba}/>
+        </Router>
+       {/*  <main className="App-header">
 
         <h1>Meli carrrousel</h1>
 
         <section>
-          {this.state.result.map((result, key) => {
-              return <Card img={result.thumbnail} alt={result.title} title={result.title} text={result.price} key={key}></Card>
-          })}  
+          <Carrousel atributes= {this.state.result} />
         </section>
-        </main>
+        </main> */}
       </div>
     );
   }
