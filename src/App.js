@@ -3,6 +3,7 @@ import './App.css';
 import Carrito from './components/Carrito/Carrito'
 import Prueba from './components/Prueba/Prueba'
 import Carrousel from './components/Carrousel/Carrousel'
+import Individual from './components/Individual/Individual'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends React.Component {
@@ -30,6 +31,7 @@ class App extends React.Component {
         <Router>
           <Route path="/carrito" component={Carrito}/>
           <Route path="/prueba" component={Prueba}/>
+          <Route path="/dinamica/:test" component={Individual}/>
         </Router>
        <main className="App-header">
 
