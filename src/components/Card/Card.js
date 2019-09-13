@@ -5,7 +5,10 @@ class Card extends React.Component {
     constructor(props){
         super(props);
         this.currencyMap = {
-            "ARS": "$"
+            "ARS": "$",
+            "BRL": "R$",
+            "COP": "$",
+            "USD": "$"
         }
     }
     render() {
